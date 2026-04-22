@@ -1,0 +1,6 @@
+---
+# defaults file for nginx
+# SPDX-License-Identifier: MIT-0
+
+nginx_package: nginx
+nginx_service: nginx
