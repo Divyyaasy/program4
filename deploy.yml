@@ -1,0 +1,19 @@
+---
+- name: Deploy app
+  hosts: web_servers
+
+  tasks:
+
+    - name: Create destination directory
+      file:
+        path: /home/dmin/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Copy jar
+      copy:
+        src: target/app.jar
+        dest: /home/dmin/myapp/app.jar
+
+    - name: Run app
+      command: java -jar /home/dmin/myapp/app.jar
