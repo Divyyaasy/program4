@@ -11,17 +11,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('ansible-java-maven') {
-                    bat 'mvn clean install'
-                }
+                bat 'mvn clean install'
             }
         }
 
         stage('Deploy') {
             steps {
-                dir('ansible-java-maven') {
-                    bat 'wsl ansible-playbook -i inventory.ini deploy.yml'
-                }
+                bat 'wsl ansible-playbook -i inventory.ini deploy.yml'
             }
         }
     }
